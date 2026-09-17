@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "vedant.puck",
+  "name": "Puck",
+  "version": "2.0.0",
+  "author": "Vedant",
+  "description": "A polished top-bar companion with todos, wellbeing check-ins, and a working walk screensaver",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Puck — gentle todo companion",
+    "description": "Todos, saved links, water and walk check-ins, plus kind reminders",
+    "category": "Productivity",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "waterMinutes": 60,
+      "walkMinutes": 120,
+      "headphoneMinutes": 90,
+      "nightlightHour": 20
+    },
+    "schema": [
+      { "key": "waterMinutes", "type": "number", "label": "Water reminder (minutes)", "min": 20, "max": 240 },
+      { "key": "walkMinutes", "type": "number", "label": "Walk reminder (minutes)", "min": 30, "max": 360 },
+      { "key": "headphoneMinutes", "type": "number", "label": "Headphone break (minutes)", "min": 30, "max": 240 },
+      { "key": "nightlightHour", "type": "number", "label": "Night-light nudge hour", "min": 17, "max": 23 }
+    ]
+  }
+}
