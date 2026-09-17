@@ -1,7 +1,7 @@
 # Puck
 
 Puck is a small, keyboard-friendly companion in the Omarchy top bar. Click
-the checkmark pill to open it.
+the animated eyes in the bar to open it.
 
 - Keep a short todo list and mark tasks complete without leaving the bar.
 - Save useful links; clicking one opens it in your browser.

@@ -29,6 +29,7 @@ Panel {
   property string toastMessage: ""
 
   readonly property string storeScript: Qt.resolvedUrl("puck-store.sh").toString().replace("file://", "")
+  readonly property string notificationIcon: Qt.resolvedUrl("assets/puck-eyes.svg").toString().replace("file://", "")
   readonly property int openCount: Number(storeState.openCount || 0)
   readonly property int doneCount: Number(storeState.doneCount || 0)
   readonly property int totalCount: Number(storeState.totalCount || 0)
@@ -135,8 +136,11 @@ Panel {
     if (screensaverLaunching || saverProc.running) return
     screensaverLaunching = true
     screensaverResultReceived = false
-    saverProc.command = ["bash", storeScript, "toggle-screensaver"]
-    saverProc.running = true
+    // Omarchy's screensaver closes on any input or when it loses focus. Hide
+    // this keyboard-focused panel first, then wait for the click/focus change
+    // to settle before asking Omarchy to start the fullscreen terminal.
+    root.close()
+    saverLaunchTimer.restart()
   }
   function handleScreensaverResult(raw) {
     screensaverResultReceived = true
@@ -171,7 +175,7 @@ Panel {
 
   function notifyPuck(title, body) {
     if (notificationProc.running) return
-    notificationProc.command = ["notify-send", "-a", "Puck", "-t", "7000", title, body]
+    notificationProc.command = ["notify-send", "-a", "Puck", "-i", notificationIcon, "-t", "7000", title, body]
     notificationProc.running = true
   }
 
@@ -255,6 +259,16 @@ Panel {
     id: toastTimer
     interval: 5200
     onTriggered: root.toastMessage = ""
+  }
+
+  Timer {
+    id: saverLaunchTimer
+    interval: 250
+    repeat: false
+    onTriggered: {
+      saverProc.command = ["bash", root.storeScript, "toggle-screensaver"]
+      saverProc.running = true
+    }
   }
 
   Timer {

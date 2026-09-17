@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Puck eyes">
+  <rect x="8" y="20" width="112" height="88" rx="44" fill="#22252c"/>
+  <ellipse cx="45" cy="62" rx="22" ry="18" fill="#f8f8f2"/>
+  <ellipse cx="83" cy="62" rx="22" ry="18" fill="#f8f8f2"/>
+  <circle cx="50" cy="64" r="8" fill="#22252c"/>
+  <circle cx="78" cy="64" r="8" fill="#22252c"/>
+  <path d="M51 86 Q64 96 77 86" fill="none" stroke="#f8f8f2" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "vedant.puck",
   "name": "Puck",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Vedant",
   "description": "A polished top-bar companion with todos, wellbeing check-ins, and a working walk screensaver",
   "kinds": ["bar-widget"],
